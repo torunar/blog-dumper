@@ -1,0 +1,65 @@
+#!/usr/bin/env php
+<?php
+
+use BlogDumper\Config\CliConfig;
+use BlogDumper\Config\Exception;
+use BlogDumper\BlogDumper;
+use BlogDumper\Writer\Queue;
+
+require(dirname(__FILE__) . '/../vendor/autoload.php');
+
+date_default_timezone_set('UTC');
+
+try {
+    $config = new CliConfig($argv);
+} catch (Exception $e) {
+    $cliSummary = '';
+    foreach (CliConfig::getSchema() as $key) {
+        $cliSummary .= sprintf("--%s=\"...\" ", $key);
+    }
+
+    printf("Usage: \n"
+        . "\tblog-dumper --config /path/to/config.php\n"
+        . "or\n"
+        . "\tblog-dumper %s\n\n",
+        $cliSummary
+    );
+    printf("%s\n", $e->getMessage());
+
+    exit(1);
+}
+
+try {
+    $dumper = new BlogDumper($config);
+    $options = [];
+
+    $fetchNext = true;
+
+    while ($fetchNext) {
+        list($posts, $options) = $dumper->getPosts($config->get('blogName'), $options);
+
+        $queue = new Queue();
+
+        foreach($posts as $postData) {
+            $handlerClass = '\\BlogDumper\\Post\\' . ucfirst($postData->type);
+            if (class_exists($handlerClass)) {
+                /**
+                 * @var \BlogDumper\Post\APost $object
+                 */
+                $object = new $handlerClass($postData);
+                $queue->populateTasksByPost($object, $config);
+            }
+        }
+
+        $queue->process();
+
+        $options['offset'] += $options['limit'];
+        $fetchNext = !empty($posts);
+    }
+
+    exit(0);
+} catch (\Exception $e) {
+    printf("Error occurred: %s\n", $e->getMessage());
+
+    exit(1);
+}

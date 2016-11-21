@@ -1,0 +1,25 @@
+{
+  "blog_name": "test",
+  "id": 1,
+  "post_url": "http:\/\/example.com",
+  "slug": "slug",
+  "date": "2016-01-01 00:00:00 GMT",
+  "timestamp": 1451606400,
+  "tags": [
+    "tag1",
+    "tag2",
+    "tag3"
+  ],
+  "summary": "Summary",
+  "caption": "Caption",
+  "photos": [
+    {
+      "caption": "Caption",
+      "original_size": {
+        "url": "http:\/\/example.com\/image.jpg",
+        "width": 666,
+        "height": 666
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+    "name": "torunar/blog-dumper",
+    "authors": [
+        {
+            "name": "Mike Schekotov",
+            "email": "torunar@gmail.com"
+        }
+    ],
+    "bin": ["bin/blog-dumper"],
+    "require": {
+        "tumblr/tumblr": "^0.2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "BlogDumper\\": ["src/overrides/", "src/"]
+        }
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "BlogDumper\\Tests\\": "tests/",
+            "BlogDumper\\": ["src/overrides/", "src/"]
+        }
+    }
+}

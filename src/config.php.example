@@ -1,0 +1,14 @@
+<?php
+
+$config = [
+    'consumerKey'    => '',
+    'consumerSecret' => '',
+    'token'          => '',
+    'tokenSecret'    => '',
+    'apiKey'         => '',
+    'blogName'       => '',
+    'queueSize'      => 50,
+    'writePath'      => '/tmp/blog-dumper/posts/',
+];
+
+return $config;

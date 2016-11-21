@@ -1,0 +1,20 @@
+{
+  "blog_name": "test",
+  "id": 1,
+  "post_url": "http:\/\/example.com",
+  "slug": "slug",
+  "date": "2016-01-01 00:00:00 GMT",
+  "timestamp": 1451606400,
+  "tags": [
+    "tag1",
+    "tag2",
+    "tag3"
+  ],
+  "summary": "Summary.",
+  "artist": "Artist",
+  "album": "'Album",
+  "track_name": "Track Name",
+  "caption": "Caption",
+  "audio_url": "http:\/\/example.com/audio_url",
+  "audio_source_url": "http:\/\/example.com/audio_source_url"
+}

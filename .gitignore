@@ -1,0 +1,8 @@
+.idea
+.DS_Store
+posts
+config.php
+vendor
+composer.lock
+src/overrides/BlogDumper/*
+!src/overrides/BlogDumper/.gitkeep
