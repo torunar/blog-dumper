@@ -60,6 +60,6 @@ After the process is over (it may take some time if your blog is big), you can n
 
 ## Development
 
-If you are unhappy with the way BlogDumper functions (and your probably are), you can alter its behaviour by writing your own post content handlers and/or writers and putting them in the `src/overrides` directory.
+If you are unhappy with the way BlogDumper functions (and you probably are), you can alter its behaviour by writing your own post content handlers and/or writers and putting them in the `src/overrides` directory.
 
 Just keep the same structure the `src` directory has, and the magic will happen.
