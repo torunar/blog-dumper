@@ -9,8 +9,8 @@ The utility to dump your Tumblr blog (and fly away).
 ###  Clone repo (of course)
 
 ```
-$ git clone git@bitbucket.org:torunar/blog.dumper.git
-$ cd blog.dumper
+$ git clone git@bitbucket.org:torunar/blog-dumper.git
+$ cd blog-dumper
 ```
 
 ### Install dependencies
